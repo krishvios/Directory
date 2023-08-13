@@ -24,7 +24,7 @@
 		C2148F862A8915D7006B0187 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2148F852A8915D7006B0187 /* PersonDetailView.swift */; };
 		C2254D4E2A891E9600E7001B /* PersonTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2254D4D2A891E9600E7001B /* PersonTextView.swift */; };
 		C2254D502A89236900E7001B /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2254D4F2A89236900E7001B /* String+Extensions.swift */; };
-		C2254D562A89376D00E7001B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C2254D552A89376D00E7001B /* README.md */; };
+		C2254D582A893BE000E7001B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C2254D572A893BE000E7001B /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +46,7 @@
 		C2148F852A8915D7006B0187 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
 		C2254D4D2A891E9600E7001B /* PersonTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTextView.swift; sourceTree = "<group>"; };
 		C2254D4F2A89236900E7001B /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		C2254D552A89376D00E7001B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C2254D572A893BE000E7001B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 				C2148F742A88CC93006B0187 /* Networking.swift */,
 				C2148F6E2A88CA45006B0187 /* Localizable.strings */,
 				C2148F602A88C572006B0187 /* Assets.xcassets */,
-				C2254D552A89376D00E7001B /* README.md */,
+				C2254D572A893BE000E7001B /* README.md */,
 				C2148F622A88C572006B0187 /* Preview Content */,
 			);
 			path = Directory;
@@ -209,7 +209,7 @@
 			files = (
 				C2148F642A88C572006B0187 /* Preview Assets.xcassets in Resources */,
 				C2148F6F2A88CA45006B0187 /* Localizable.strings in Resources */,
-				C2254D562A89376D00E7001B /* README.md in Resources */,
+				C2254D582A893BE000E7001B /* README.md in Resources */,
 				C2148F612A88C572006B0187 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

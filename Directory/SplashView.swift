@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SplashView: View {
     @State var isActive: Bool = false
+    @Environment(\.colorScheme) var colorScheme
+
     var body: some View {
         ZStack {
             if self.isActive {
@@ -19,13 +21,12 @@ struct SplashView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 300, height: 300)
-                        .background(Color.white)
+                        .background(Color.clear)
                         .foregroundColor(Color("Brand"))
                     Text((Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String)!)
                         .font(.largeTitle)
-                    
-                        .foregroundColor(Color("Brand"))
                         .padding(.top, -50)
+                        .foregroundColor(colorScheme == .dark ? .white : Color("Brand"))
                 }
             }
         }
