@@ -5,3 +5,15 @@
   Created by ANSK Vivek on 13/08/23.
   
 */
+
+/* People */
+"people" = "People";
+
+/* Rooms */
+"rooms" = "Rooms";
+
+/* About */
+"about" = "About";
+
+/* Search */
+"search" = "Search";

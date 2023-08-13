@@ -8,13 +8,22 @@
 import SwiftUI
 
 struct PersonTextView: View {
+    var title: String
+    var description: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text(title)
+                .font(.title3)
+            Text(description)
+                .font(.headline)
+        }
+        .padding(.bottom,10)
     }
 }
 
 struct PersonTextView_Previews: PreviewProvider {
     static var previews: some View {
-        PersonTextView()
+        PersonTextView(title: "", description: "")
     }
 }

@@ -8,8 +8,29 @@
 import SwiftUI
 
 struct RoomsView: View {
+    @StateObject var roomsViewModel = RoomsViewModel()
+    
     var body: some View {
-        Text("Rooms")
+        NavigationStack {
+            List(roomsViewModel.rooms) { room in
+                HStack {
+                    VStack(alignment: .leading) {
+                        RoomTextView(title: "Room number: ", description: room.id)
+                        RoomTextView(title: "Max Occupancy: ", description: "\(room.maxOccupancy)")
+                        RoomTextView(title: "Is Occupied: ", description: (room.isOccupied ? "Yes" : "No"))
+                        RoomTextView(title: "Booked on: ", description: room.createdAt.getReadableDate())
+                    }
+                }
+            }
+            .listStyle(.plain)
+            .navigationTitle("rooms")
+            .toolbarBackground(Color("Brand"), for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarColorScheme(.dark, for: .navigationBar)
+            .onAppear {
+                roomsViewModel.loadRoomsData()
+            }
+        }
     }
 }
 

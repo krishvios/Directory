@@ -8,14 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    enum Tab: Hashable {
+        case people
+        case rooms
+    }
+
+    @State var selectedTab: Tab = .people
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        TabView(selection: $selectedTab) {
+            PeopleView()
+                .tabItem {
+                    Image(systemName: "person.circle.fill")
+                    Text("People")
+                }
+                .tag(Tab.people)
+            
+            RoomsView()
+                .tabItem {
+                    Image(systemName: "building.2")
+                    Text("Rooms")
+                }
+                .tag(Tab.rooms)
+        }.onChange(of: selectedTab) { newValue in
+            print("tab selected = \(String(describing: newValue))")
         }
-        .padding()
     }
 }
 

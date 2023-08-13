@@ -6,3 +6,30 @@
 //
 
 import Foundation
+import Combine
+
+class RoomsViewModel: ObservableObject {
+    @Published var rooms: [Room] = []
+
+    let roomsURLString = Constants.endPoint + "/rooms"
+    var cancellables = Set<AnyCancellable>()
+
+    func loadRoomsData() {
+        Networking()
+            .get(url: roomsURLString)
+            .decode(type: [Room].self, decoder: jsonDecoder)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("error = "+error.localizedDescription)
+                }
+            }, receiveValue: { response in
+                // print("response = \(response)")
+                self.rooms = response
+            })
+            .store(in: &cancellables)
+    }
+}

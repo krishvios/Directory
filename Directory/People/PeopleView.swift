@@ -8,69 +8,53 @@
 import SwiftUI
 
 struct PeopleView: View {
-    @StateObject var peopleviewModel = PeopleViewModel()
-
+    @StateObject var peopleViewModel = PeopleViewModel()
+    
     var body: some View {
         NavigationStack {
-            List(peopleviewModel.people) { person in
-                HStack {
-                    AsyncImage(url: URL(string: person.avatar)!) { avatar in
-                        
-//                        if let image = avatar {
-//                                            image
-//                                                .resizable()
-//                                                .scaledToFit()
-//                                        }
-//                                        else if avatar.error != nil {
-//                                            Text("There was an eror loading image.")
-//                                        }
-//                                        else {
-//                                            ProgressView()
-//                                        }
-                        
-                        
-                        
-                        avatar
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-//                            .frame(width: 40)
-                            .cornerRadius(30)
-                    } placeholder: {
-//                        ProgressView()
-                        Image(systemName: "person.circle")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-//                            .frame(width: 40)
-                            .cornerRadius(30)
-                    }
-                    .frame(width: 60)
-                    
-                    VStack(alignment: .leading) {
-                        Text(person.firstName + " " + person.lastName)
-                            .font(.headline)
-                            .padding()
-//                        Text(movie.overview)
-//                            .font(.caption)
-//                            .lineLimit(3)
+            List {
+                ForEach(peopleViewModel.searchResults, id: \.self) { person in
+                    NavigationLink(value: person) {
+                        HStack {
+                            AsyncImage(url: URL(string: person.avatar)!) { avatar in
+                                avatar
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .cornerRadius(30)
+                            } placeholder: {
+                                Image(systemName: "person.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .cornerRadius(30)
+                            }
+                            .frame(width: 60)
+                            
+                            VStack(alignment: .leading) {
+                                Text(person.firstName + " " + person.lastName)
+                                    .font(.headline)
+                                    .padding()
+                            }
+                        }
                     }
                 }
-//                .navigationDestination(for: String.self, destination: MovieDetailsView.init)
+                .listRowSeparator(.hidden, edges: .all)
+                .listRowInsets(.init(top: 10, leading: 10, bottom: 10, trailing: 10))
             }
-            .navigationTitle("People")
-//            .searchable(text: $viewModel.searchQuery)
+            .navigationDestination(for: Person.self, destination: { person in
+                PersonDetailView(person: person)
+            })
+            .listStyle(.plain)
+            .navigationTitle("people")
+            .toolbarBackground(
+                Color("Brand"),
+                            for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarColorScheme(.dark, for: .navigationBar)
             .onAppear {
-                peopleviewModel.loadPeopleData()
+                peopleViewModel.loadPeopleData()
             }
-
-            
-            
-//            List {
-//                ForEach
-//            }
         }
-//        .onAppear {
-//            PeopleViewModel().loadPeopleData()
-//        }
+        .searchable(text: $peopleViewModel.searchText, prompt: "search")
     }
 }
 
