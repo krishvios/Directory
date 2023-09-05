@@ -12,20 +12,19 @@ struct PersonDetailView: View {
     var body: some View {
         List {
             HStack (alignment: .center) {
-                Spacer()
                 AsyncImage(url: URL(string: person.avatar)!) { avatar in
                     avatar
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .cornerRadius(150)
+                        .clipShape(Circle())
                 } placeholder: {
                     Image(systemName: "person.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .cornerRadius(150)
+                        .clipShape(Circle())
                 }
                 .frame(width: 300)
-                Spacer()
+                .alignment(.center)
             }
             PersonTextView(title: "Job title: ", description: person.jobtitle)
             PersonTextView(title: "Email: ", description: person.email)
@@ -46,7 +45,6 @@ struct PersonDetailView: View {
             for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
         .toolbarColorScheme(.dark, for: .navigationBar)
-        Spacer()
     }
 }
 

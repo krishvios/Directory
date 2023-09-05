@@ -13,13 +13,13 @@ struct RoomTextView: View {
 
     var body: some View {
         VStack {
-            Spacer()
             HStack {
                 Text(title)
                     .font(.headline)
                 Text(description)
             }
         }
+        .alignment(.bottom)
     }
 }
 

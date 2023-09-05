@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PeopleView: View {
     @StateObject var peopleViewModel = PeopleViewModel()
+    @State var isLoading = true
     
     var body: some View {
         NavigationStack {
@@ -20,12 +21,12 @@ struct PeopleView: View {
                                 avatar
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .cornerRadius(30)
+                                    .clipShape(Circle())
                             } placeholder: {
                                 Image(systemName: "person.fill")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .cornerRadius(30)
+                                    .clipShape(Circle())
                             }
                             .frame(width: 60)
                             
@@ -34,6 +35,7 @@ struct PeopleView: View {
                                     .font(.headline)
                                     .padding()
                             }
+                            .redacted(reason: self.isLoading ? .placeholder : [])
                         }
                     }
                 }
@@ -52,6 +54,9 @@ struct PeopleView: View {
             .toolbarColorScheme(.dark, for: .navigationBar)
             .onAppear {
                 peopleViewModel.loadPeopleData()
+                DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: {
+                    self.isLoading = false
+                })
             }
         }
         .searchable(text: $peopleViewModel.searchText, prompt: "search")

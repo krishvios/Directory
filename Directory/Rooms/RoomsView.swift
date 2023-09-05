@@ -20,6 +20,8 @@ struct RoomsView: View {
                         RoomTextView(title: "Is Occupied: ", description: (room.isOccupied ? "Yes" : "No"))
                         RoomTextView(title: "Booked on: ", description: room.createdAt.getReadableDate())
                     }
+                    .padding(.top, 10)
+                    .padding(.bottom, 10)
                 }
             }
             .listStyle(.plain)
