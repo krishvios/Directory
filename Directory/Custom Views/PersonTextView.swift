@@ -12,13 +12,14 @@ struct PersonTextView: View {
     var description: String
     
     var body: some View {
-        HStack {
+        HStack(alignment: .top) {
             Text(title)
                 .font(.title3)
             Text(description)
                 .font(.headline)
         }
         .padding(.bottom,10)
+        .fixedSize(horizontal: false, vertical: true)
     }
 }
 

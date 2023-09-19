@@ -14,7 +14,7 @@ struct RoomsView: View {
         NavigationStack {
             List(roomsViewModel.rooms) { room in
                 HStack {
-                    VStack(alignment: .leading) {
+                    VStack {
                         RoomTextView(title: "Room number: ", description: room.id)
                         RoomTextView(title: "Max Occupancy: ", description: "\(room.maxOccupancy)")
                         RoomTextView(title: "Is Occupied: ", description: (room.isOccupied ? "Yes" : "No"))

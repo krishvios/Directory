@@ -12,14 +12,16 @@ struct RoomTextView: View {
     var description: String
 
     var body: some View {
-        VStack {
-            HStack {
+        VStack(alignment: .leading) {
+            HStack(alignment: .top) {
                 Text(title)
                     .font(.headline)
                 Text(description)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             }
         }
         .alignment(.bottom)
+        .fixedSize(horizontal: false, vertical: true)
     }
 }
 
