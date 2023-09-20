@@ -12,7 +12,7 @@ struct PersonTextView: View {
     var description: String
     
     var body: some View {
-        HStack(alignment: .top) {
+        VStack(alignment: .leading) {
             Text(title)
                 .font(.title3)
             Text(description)
