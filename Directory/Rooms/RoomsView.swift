@@ -26,6 +26,7 @@ struct RoomsView: View {
             }
             .listStyle(.plain)
             .navigationTitle("rooms")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(Color("Brand"), for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarColorScheme(.dark, for: .navigationBar)

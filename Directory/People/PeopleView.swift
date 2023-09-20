@@ -47,6 +47,7 @@ struct PeopleView: View {
             })
             .listStyle(.plain)
             .navigationTitle("people")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(
                 Color("Brand"),
                             for: .navigationBar)
