@@ -15,7 +15,7 @@ class RoomsViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
 
     func loadRoomsData() {
-        Networking()
+        Networking.sharedInstance
             .get(url: roomsURLString)
             .decode(type: [Room].self, decoder: jsonDecoder)
             .receive(on: DispatchQueue.main)

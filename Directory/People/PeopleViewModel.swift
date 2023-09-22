@@ -24,7 +24,7 @@ class PeopleViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     
     func loadPeopleData() {
-        Networking()
+        Networking.sharedInstance
             .get(url: peopleURLString)
             .decode(type: [Person].self, decoder: jsonDecoder)
             .receive(on: DispatchQueue.main)

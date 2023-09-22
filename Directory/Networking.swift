@@ -20,10 +20,16 @@ enum NetworkError: Error {
     }
 }
 
-class Networking {
+final class Networking: Any {
     
     private let session = URLSession.shared
     
+    static public let sharedInstance = Networking()
+    
+    static func getInstance() -> Networking {
+        return sharedInstance
+    }
+
     func get<Object: Codable>(url: String, resultType: Object.Type = Object.self) -> some Publisher<Object, Error> {
         session
             .dataTaskPublisher(for: URL(string: url)!)
