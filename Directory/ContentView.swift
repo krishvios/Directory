@@ -31,9 +31,11 @@ struct ContentView: View {
                     Text("Rooms")
                 }
                 .tag(Tab.rooms)
-        }.onChange(of: selectedTab) { newValue in
-            print("tab selected = \(String(describing: newValue))")
         }
+        .onChange(of: selectedTab, { oldValue, newValue in
+            print("last tab selected = \(String(describing: oldValue))")
+            print("tab selected = \(String(describing: newValue))")
+        })
     }
 }
 

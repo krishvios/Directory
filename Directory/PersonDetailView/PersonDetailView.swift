@@ -36,7 +36,7 @@ struct PersonDetailView: View {
         .toolbar {
             ToolbarItem(placement: .principal) {
                 VStack {
-                    Text(person.firstName + " " + person.lastName).font(.headline)
+                    Text(person.fullName).font(.headline)
                 }
             }
         }

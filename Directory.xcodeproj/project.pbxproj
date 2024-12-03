@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C20B5E3F2B87669C00AC0815 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B5E3E2B87669C00AC0815 /* PersonView.swift */; };
+		C20B5E412B8766ED00AC0815 /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B5E402B8766ED00AC0815 /* PersonViewModel.swift */; };
 		C2148F5D2A88C570006B0187 /* DirectoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2148F5C2A88C570006B0187 /* DirectoryApp.swift */; };
 		C2148F5F2A88C570006B0187 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2148F5E2A88C570006B0187 /* ContentView.swift */; };
 		C2148F612A88C572006B0187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2148F602A88C572006B0187 /* Assets.xcassets */; };
@@ -22,6 +24,7 @@
 		C2148F822A88F824006B0187 /* RoomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2148F812A88F824006B0187 /* RoomTextView.swift */; };
 		C2148F842A88FB60006B0187 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2148F832A88FB60006B0187 /* SplashView.swift */; };
 		C2148F862A8915D7006B0187 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2148F852A8915D7006B0187 /* PersonDetailView.swift */; };
+		C2150A7B2ADD90430068A0DF /* PeopleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2148F702A88CB8E006B0187 /* PeopleViewModel.swift */; };
 		C2254D4E2A891E9600E7001B /* PersonTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2254D4D2A891E9600E7001B /* PersonTextView.swift */; };
 		C2254D502A89236900E7001B /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2254D4F2A89236900E7001B /* String+Extensions.swift */; };
 		C2254D582A893BE000E7001B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C2254D572A893BE000E7001B /* README.md */; };
@@ -40,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C20B5E3E2B87669C00AC0815 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		C20B5E402B8766ED00AC0815 /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
 		C2148F592A88C570006B0187 /* Directory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Directory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2148F5C2A88C570006B0187 /* DirectoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryApp.swift; sourceTree = "<group>"; };
 		C2148F5E2A88C570006B0187 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C20B5E422B8769B700AC0815 /* PersonView */ = {
+			isa = PBXGroup;
+			children = (
+				C20B5E402B8766ED00AC0815 /* PersonViewModel.swift */,
+				C20B5E3E2B87669C00AC0815 /* PersonView.swift */,
+			);
+			path = PersonView;
+			sourceTree = "<group>";
+		};
 		C2148F502A88C570006B0187 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +122,7 @@
 				C2148F5E2A88C570006B0187 /* ContentView.swift */,
 				C2148F832A88FB60006B0187 /* SplashView.swift */,
 				C2148F7A2A88EAD3006B0187 /* People */,
+				C20B5E422B8769B700AC0815 /* PersonView */,
 				C2254D522A89368900E7001B /* PersonDetailView */,
 				C2148F7B2A88EADF006B0187 /* Rooms */,
 				C2148F802A88F81A006B0187 /* Custom Views */,
@@ -228,7 +243,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					C2148F582A88C570006B0187 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -248,6 +263,9 @@
 				Base,
 			);
 			mainGroup = C2148F502A88C570006B0187;
+			packageReferences = (
+				C20D73252C5C1B3E008252DE /* XCRemoteSwiftPackageReference "swift-concurrency-extras" */,
+			);
 			productRefGroup = C2148F5A2A88C570006B0187 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -288,6 +306,7 @@
 				C2148F5F2A88C570006B0187 /* ContentView.swift in Sources */,
 				C2254D4E2A891E9600E7001B /* PersonTextView.swift in Sources */,
 				C2148F6D2A88C9A2006B0187 /* RoomsView.swift in Sources */,
+				C20B5E412B8766ED00AC0815 /* PersonViewModel.swift in Sources */,
 				C2148F5D2A88C570006B0187 /* DirectoryApp.swift in Sources */,
 				C2148F862A8915D7006B0187 /* PersonDetailView.swift in Sources */,
 				C2148F712A88CB8E006B0187 /* PeopleViewModel.swift in Sources */,
@@ -297,6 +316,7 @@
 				C2254D502A89236900E7001B /* String+Extensions.swift in Sources */,
 				C2148F792A88D19A006B0187 /* Constants.swift in Sources */,
 				C2148F822A88F824006B0187 /* RoomTextView.swift in Sources */,
+				C20B5E3F2B87669C00AC0815 /* PersonView.swift in Sources */,
 				C2FE790B2AA71E3C000C8137 /* View+Extensions.swift in Sources */,
 				C2148F7D2A88EAEE006B0187 /* RoomsViewModel.swift in Sources */,
 			);
@@ -307,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2669C8B2A96AF750047F9E1 /* DirectoryTests.swift in Sources */,
+				C2150A7B2ADD90430068A0DF /* PeopleViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +378,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -371,7 +393,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -417,6 +439,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -425,7 +448,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -451,6 +474,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,6 +504,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -560,6 +585,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C20D73252C5C1B3E008252DE /* XCRemoteSwiftPackageReference "swift-concurrency-extras" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-concurrency-extras.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = C2148F512A88C570006B0187 /* Project object */;
 }

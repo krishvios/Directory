@@ -11,32 +11,15 @@ struct PeopleView: View {
     @StateObject var peopleViewModel = PeopleViewModel()
     @State var isLoading = true
     
+    @Environment(\.presentationMode) private var presentationMode
+
     var body: some View {
         NavigationStack {
             List {
                 ForEach(peopleViewModel.searchResults, id: \.self) { person in
                     NavigationLink(value: person) {
-                        HStack {
-                            AsyncImage(url: URL(string: person.avatar)!) { avatar in
-                                avatar
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipShape(Circle())
-                            } placeholder: {
-                                Image(systemName: "person.fill")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipShape(Circle())
-                            }
-                            .frame(width: 60)
-                            
-                            VStack(alignment: .leading) {
-                                Text(person.firstName + " " + person.lastName)
-                                    .font(.headline)
-                                    .padding()
-                            }
+                        PersonView(personItemViewModel: PersonViewModel(person: person))
                             .redacted(reason: self.isLoading ? .placeholder : [])
-                        }
                     }
                 }
                 .listRowSeparator(.hidden, edges: .all)
@@ -54,13 +37,14 @@ struct PeopleView: View {
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarColorScheme(.dark, for: .navigationBar)
             .onAppear {
-                peopleViewModel.loadPeopleData()
+                peopleViewModel.loadPeopleData2()
                 DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: {
                     self.isLoading = false
                 })
             }
         }
-        .searchable(text: $peopleViewModel.searchText, prompt: "search")
+        .navigationBarTitleDisplayMode(.inline)
+        .searchable(text: $peopleViewModel.searchText, placement: .navigationBarDrawer(displayMode: .automatic), prompt: "search")
     }
 }
 

@@ -32,4 +32,21 @@ class RoomsViewModel: ObservableObject {
             })
             .store(in: &cancellables)
     }
+    
+    func loadRoomsData2() {
+        Networking.sharedInstance
+            .getData(endpoint: roomsURLString, type: [Room].self)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("error = "+error.localizedDescription)
+                }
+            } receiveValue: { response in
+                // print("response = \(response)")
+                self.rooms = response
+            }
+            .store(in: &cancellables)
+    }
 }

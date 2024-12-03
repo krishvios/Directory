@@ -13,7 +13,9 @@ let jsonDecoder: JSONDecoder = {
     return decoder
 }()
 
-struct Person: Decodable, Equatable, Identifiable, Hashable {
+let personNameFormatter = PersonNameComponentsFormatter()
+
+struct Person: Codable, Hashable {
     var createdAt: String
     var firstName: String
     var avatar: String
@@ -22,11 +24,28 @@ struct Person: Decodable, Equatable, Identifiable, Hashable {
     var jobtitle: String
     var favouriteColor: String
     var id: String
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(createdAt+id)
+    }
 }
 
-struct Room: Decodable, Equatable, Identifiable {
+extension Person {
+    var fullName: String {
+        var components = PersonNameComponents()
+        components.givenName = firstName
+        components.familyName = lastName
+        return personNameFormatter.string(from: components)
+    }
+}
+
+struct Room: Codable, Hashable {
     var createdAt: String
     var isOccupied: Bool
     var maxOccupancy: Int
     var id: String
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }

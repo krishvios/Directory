@@ -16,7 +16,7 @@ class PeopleViewModel: ObservableObject {
     var searchResults: [Person] {
         guard !searchText.isEmpty else { return people }
         return people.filter { person in
-            person.firstName.lowercased().contains(searchText.lowercased())
+            person.fullName.lowercased().contains(searchText.lowercased())
         }
     }
     
@@ -39,6 +39,23 @@ class PeopleViewModel: ObservableObject {
                 // print("response = \(response)")
                 self.people = response
             })
+            .store(in: &cancellables)
+    }
+    
+    func loadPeopleData2() {
+        Networking.sharedInstance
+            .getData(endpoint: peopleURLString, type: [Person].self)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("error = "+error.localizedDescription)
+                }
+            } receiveValue: { response in
+                // print("response = \(response)")
+                self.people = response
+            }
             .store(in: &cancellables)
     }
 }
